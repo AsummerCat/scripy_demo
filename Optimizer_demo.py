@@ -9,6 +9,10 @@ import numpy as np
 # 计算最小值
 from scipy.optimize import minimize
 
+'''
+最小值
+'''
+
 
 def test():
     # 无约束最小化多元标量函数 Nelder-Mead（单纯形法）
@@ -24,13 +28,24 @@ def test():
     # 计算最小点 根据rosen 获取最小点 算法:1度5点为基础 5个点合拢成最小值
     res = minimize(rosen, x0, method='nelder-mead', options=options, callback=callback)
     print("ROSE MINI", res.x)
-
-
-
-
     pass
 
 
+'''
+求根
+'''
+
+
+def test1():
+    from scipy.optimize import root
+    def fun(x):
+        return x + 2 * np.cos(x)
+
+    sol = root(fun, 0.1)
+    print("ROOT", sol.x, sol.fun)
+
+
 if __name__ == '__main__':
-    test()
+    # test()
+    test1()
     pass
